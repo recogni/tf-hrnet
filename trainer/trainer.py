@@ -105,6 +105,8 @@ class Trainer():
         # initialization
         self.sess_train.run(self.init_op)
 
+        tf.summary.FileWriter(self.model_path, self.sess_train.graph)
+
         if FLAGS.resume_training:
             save_path = tf.train.latest_checkpoint(os.path.dirname(self.model_path+'/model.ckpt'))
             self.saver_train.restore(self.sess_train, save_path)
