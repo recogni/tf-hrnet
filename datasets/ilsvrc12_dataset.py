@@ -106,7 +106,7 @@ class Ilsvrc12Dataset(AbstractDataset):
     # initialize the base class
     super(Ilsvrc12Dataset, self).__init__(is_train)
 
-    if not os.path.exists(data_dir):
+    if not tf.gfile.Exists(data_dir):
       raise ValueError('data dir does not exist: ' + data_dir)
 
     # configure file patterns & function handlers
